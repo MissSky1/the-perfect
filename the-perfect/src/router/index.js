@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 
 Vue.use(Router)
 
@@ -8,8 +7,17 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'home',
+      component: () => import('pages/home/index')
+    }, {
+      path: '/city',
+      name: 'city',
+      component: () => import('pages/city/index')
+    }, {
+      path: '/detail/:sightId',
+      name: 'detail',
+      component: () => import('pages/detail/index'),
+      props: true
     }
   ]
 })
